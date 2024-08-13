@@ -71,24 +71,15 @@ def map_pointcloud_to_image(
     return points, coloring
 
 
-info_path = './data/nuScenes/nuscenes_12hz_infos_train.pkl'
-
-lidar_key = 'LIDAR_TOP'
-cam_keys = [
-    'CAM_FRONT_LEFT', 'CAM_FRONT', 'CAM_FRONT_RIGHT', 'CAM_BACK_RIGHT',
-    'CAM_BACK', 'CAM_BACK_LEFT'
-]
-
-
 def worker(info):
-    lidar_path = info['lidar_infos'][lidar_key]['filename']
+    lidar_path = info['lidar_infos'][LIDAR_NAMES]['filename']
     points = np.fromfile(os.path.join(DATA_DIR, lidar_path),
                          dtype=np.float32,
                          count=-1).reshape(-1, 5)[..., :4]
-    lidar_calibrated_sensor = info['lidar_infos'][lidar_key][
+    lidar_calibrated_sensor = info['lidar_infos'][LIDAR_NAMES][
         'calibrated_sensor']
-    lidar_ego_pose = info['lidar_infos'][lidar_key]['ego_pose']
-    for i, cam_key in enumerate(cam_keys):
+    lidar_ego_pose = info['lidar_infos'][LIDAR_NAMES]['ego_pose']
+    for i, cam_key in enumerate(CAMERA_NAMES):
         cam_calibrated_sensor = info['cam_infos'][cam_key]['calibrated_sensor']
         cam_ego_pose = info['cam_infos'][cam_key]['ego_pose']
         img = mmcv.imread(
@@ -108,7 +99,7 @@ def worker(info):
 if __name__ == '__main__':
     po = Pool(24)
     mmcv.mkdir_or_exist(SAVE_DIR_DEP)
-    infos = mmcv.load(info_path)
+    infos = mmcv.load(os.path.join(DATA_DIR, 'nuscenes_12hz_infos_train.pkl'))
     # import ipdb; ipdb.set_trace()
     for info in infos:
         po.apply_async(func=worker, args=(info, ))
