@@ -45,16 +45,13 @@ These weights have already been grouped into `ckpts` and `work_dirs` folders.
 Edit the scripts/configs.py file, first setting the `TASK_Flag` to choose the type of labels you want, and then setting the `DATA_DIR` and `SAVE_DIR` entries to the location of the NuScenes dataset and the desired ground truth folder respectively.
 
 * Prepare depth labels
-
-```bash
-python scripts/gen_depth_gt.py
-```
-
+  ```
+  python scripts/gen_depth_gt.py
+  ```
 * Prepare segmentation labels
-
-```bash
-python scripts/gen_pvseg_gt.py
-```
+  ```
+  python scripts/gen_pvseg_gt.py
+  ```
 
 After preparation, the directory will be as follows:  
 
