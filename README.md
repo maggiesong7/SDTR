@@ -1,4 +1,4 @@
-# Divide and Conquer: Improving Multi-Camera 3D Perception With 2D Semantic-Depth Priors and Input-Dependent Queries [TIP 2023]
+# Divide and Conquer: Improving Multi-Camera 3D Perception With 2D Semantic-Depth Priors and Input-Dependent Queries [TIP 2024]
 
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://ieeexplore.ieee.org/abstract/document/10407035/)
 
