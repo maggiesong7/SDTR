@@ -43,7 +43,7 @@ DATA_VERSION = 'v1.0-trainval'
 DATA_DIR = '/data/nuscenes/'
 
 SAVE_DIR_MAP = '/data/nuscenes/pv_labels/map/'
-
+SAVE_DIR_DEP = '/data/nuscenes/pv_labels/depth/'
 
 if TASK_FLAG == 'seg':
 
