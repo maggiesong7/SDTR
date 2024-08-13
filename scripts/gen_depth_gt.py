@@ -90,10 +90,7 @@ def worker(info):
         file_name = os.path.split(info['cam_infos'][cam_key]['filename'])[-1]
         np.concatenate([pts_img[:2, :].T, depth[:, None]],
                        axis=1).astype(np.float32).flatten().tofile(
-                           os.path.join(DATA_DIR, 'pv_labels/depth',
-                           # os.path.join('/tmp_hdd', 'depth_trainval',
-                                        f'{file_name}.bin'))
-    # plt.savefig(f"{sample_idx}")
+                           os.path.join(SAVE_DIR_DEP, f'{file_name}.bin'))
 
 
 if __name__ == '__main__':
