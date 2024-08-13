@@ -13,6 +13,7 @@ This repository is an official implementation of [SDTR](https://ieeexplore.ieee.
 
 We propose SDTR, a transformer-based framework that incorporates semantic and depth priors to improve the capability of inferring both semantic categories and 3D positions. SDTR got accepted by TIP (IEEE Transactions on Image Processing).
 
+
 ## Preparation
 
 #### Environment
